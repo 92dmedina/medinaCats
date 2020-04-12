@@ -10,8 +10,8 @@ const catSlideShow = () => {
 
     slideIndex++;
     if (slideIndex > slides.length) {
-        slideIndex = 1, true
-    }
+        slideIndex = 1, true;
+    };
     slides[slideIndex - 1].style.display = "block";
     start = setTimeout(catSlideShow, 7000);
 };

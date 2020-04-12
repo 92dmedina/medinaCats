@@ -27,8 +27,12 @@ img {
 }
 
 #captiontextjiji {
+    font-family: fantasy;
+    text-align: center;
     position: absolute;
-    color: ghostwhite;
+    max-width: min-content;
+    max-height: min-content;
+    color: #ffffff;
     font-size: 32px;
     font-weight: bold;
     margin-left: 86%;
@@ -52,6 +56,8 @@ img {
 
 header {
     position: absolute;
+    max-width: min-content;
+    max-height: min-content;
 }
 
 .title {
