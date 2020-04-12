@@ -13,7 +13,7 @@ const catSlideShow = () => {
         slideIndex = 1, true;
     };
     slides[slideIndex - 1].style.display = "block";
-    start = setTimeout(catSlideShow, 7000);
+    start = setTimeout(catSlideShow, 5000);
 };
 //Start Slideshow w/button.
 const startSlideShow = () => {
@@ -21,7 +21,7 @@ const startSlideShow = () => {
         disableButton()
     } else {
         catCounterHolder -= 1;
-        setTimeout(catSlideShow, 7000);
+        setTimeout(catSlideShow, 5000);
         console.log(catCounterHolder);
     };
 };
