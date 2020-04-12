@@ -30,15 +30,16 @@ body {
     border: inset 8px #333230a4;
 }
 
-.slidesContainer1 {
+#slideContainer1 {
     position: absolute;
     margin-top: 110px;
     margin-left: 10px;
     z-index: 1;
 }
 
-.slidesContainer2 {
+#slideContainer2 {
     position: absolute;
+    z-index: 1;
 }
 
 img {
@@ -118,6 +119,9 @@ img {
     margin-top: 103px;
     display: block;
 }
+
+
+/* Hidden Button */
 
 #pauseButton {
     max-width: min-content;
