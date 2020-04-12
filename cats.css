@@ -29,8 +29,8 @@ body {
 
 .slidesContainer {
     position: absolute;
-    margin-left: 590px;
     margin-top: 110px;
+    margin-left: 270px;
     z-index: 1;
 }
 
