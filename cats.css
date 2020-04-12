@@ -7,6 +7,10 @@
 
 /* Slides */
 
+.oliverSlides {
+    display: none;
+}
+
 .catSlides {
     display: none;
 }
@@ -19,19 +23,22 @@ body {
 /* Slideshow */
 
 .ssContainer {
-    position: relative;
+    position: absolute;
     width: 750px;
     height: 850px;
     background-color: #e9967a;
     border: inset 8px #333230a4;
-    margin: auto;
 }
 
-.slidesContainer {
+.slidesContainer1 {
     position: absolute;
     margin-top: 110px;
-    margin-left: 270px;
+    margin-left: 10px;
     z-index: 1;
+}
+
+.slidesContainer2 {
+    position: absolute;
 }
 
 img {
