@@ -2,8 +2,13 @@
 var slideIndex = 0;
 var catCounterHolder = 0;
 var oliverHolder = 0;
+var oliverStart
+var catStart
+var catOn
+
 //Cat SlideShow Function
 const catSlideShow = () => {
+    catOn = true;
     var i;
     var slides = document.getElementsByClassName("catSlides");
     for (i = 0; i < slides.length; i++) {
@@ -35,24 +40,27 @@ const oliverSlideShow = () => {
 };
 //Start Slideshow w/button.
 const startSlideShow = () => {
+    console.log(catCounterHolder);
+    console.log(oliverHolder);
     if (catCounterHolder == 0) {
         disableButton();
     }
     if (oliverHolder == 0) {
         disableButton();
     }
-    if (catCounterHolder > 0) {
+    if (catCounterHolder = 1) {
         catCounterHolder = 0;
         setTimeout(catSlideShow, 5000);
-        console.log(catCounterHolder);
+        doublePlay();
     }
-    if (oliverHolder > 0) {
+    if (oliverHolder = 1) {
         oliverHolder = 0;
         setTimeout(oliverSlideShow, 5000);
     }
 };
 //Pause Button and Cat Counter
 const pauseSlideShow = () => {
+
     if (catCounterHolder >= 0) {
         clearTimeout(catStart);
         catCounterHolder++;
@@ -62,6 +70,35 @@ const pauseSlideShow = () => {
         clearTimeout(oliverStart);
         oliverHolder++;
         console.log(oliverHolder);
+    }
+    if (oliverHolder >= 1 && catCounterHolder >= 1) {
+        oliverHolder = 0
+        catCounterHolder = 0
+    };
+};
+//Change Slideshow Button
+const changeSlideShow = () => {
+    slideIndex = 0;
+    catCounterHolder = 0;
+    oliverHolder++;
+    clearTimeout(catStart);
+    var oliverS = document.getElementById("slideContainer1");
+    var displayButton = document.getElementById("changeButton");
+    if (oliverHolder == 1) {
+        oliverS.style.display = "none";
+        oliverSlideShow();
+
+    }
+    if (catCounterHolder == 0) {
+        displayButton.style.display = 'none';
+    };
+
+};
+//Stop double play
+const doublePlay = () => {
+    var doubleP = document.getElementById("slideContainer2");
+    if (catOn = true) {
+        doubleP.style.display = "none";
     };
 };
 //Disable Button
@@ -70,23 +107,5 @@ const disableButton = () => {
 };
 //Display Button
 const displayButton = () => {
-        document.getElementById("changeButton2").style.visibility = 'visible';
-    }
-    //Change Slideshow Button
-const changeSlideShow = () => {
-    slideIndex = 0;
-    catCounterHolder = 0;
-    oliverHolder++;
-    clearTimeout(catStart);
-    var oliverS = document.getElementById("slideContainer1");
-    var displayButton = document.getElementById("changeButton");
-    if (catCounterHolder == 0) {
-        oliverS.style.display = "none";
-        oliverSlideShow();
-        console.log(oliverHolder);
-    }
-    if (oliverHolder == 1) {
-        displayButton.style.display = 'none';
-    };
-
+    document.getElementById("changeButton2").style.visibility = 'visible';
 };
