@@ -25,6 +25,7 @@ const catSlideShow = () => {
 };
 //Oliver Slideshow Function
 const oliverSlideShow = () => {
+    catOn = false;
     var i;
     var slides = document.getElementsByClassName("oliverSlides");
     for (i = 0; i < slides.length; i++) {
@@ -40,65 +41,73 @@ const oliverSlideShow = () => {
 };
 //Start Slideshow w/button.
 const startSlideShow = () => {
-    console.log(catCounterHolder);
-    console.log(oliverHolder);
+    revert = document.getElementById("slideContainer2");
     if (catCounterHolder == 0) {
         disableButton();
     }
     if (oliverHolder == 0) {
         disableButton();
     }
-    if (catCounterHolder = 1) {
+    if (catCounterHolder === 1 && catOn === true) {
         catCounterHolder = 0;
         setTimeout(catSlideShow, 5000);
         doublePlay();
-    }
-    if (oliverHolder = 1) {
+    } else {
         oliverHolder = 0;
         setTimeout(oliverSlideShow, 5000);
-    }
+    };
+    console.log(catOn);
+    console.log(catCounterHolder);
+    console.log(oliverHolder);
 };
 //Pause Button and Cat Counter
 const pauseSlideShow = () => {
 
-    if (catCounterHolder >= 0) {
+    if (catCounterHolder <= 1) {
         clearTimeout(catStart);
         catCounterHolder++;
         console.log(catCounterHolder);
     }
-    if (oliverHolder >= 0) {
+    if (oliverHolder <= 1) {
         clearTimeout(oliverStart);
         oliverHolder++;
         console.log(oliverHolder);
     }
-    if (oliverHolder >= 1 && catCounterHolder >= 1) {
+    if (oliverHolder >= 1) {
         oliverHolder = 0
+    }
+    if (catCounterHolder >= 1) {
         catCounterHolder = 0
     };
 };
 //Change Slideshow Button
 const changeSlideShow = () => {
-    slideIndex = 0;
     catCounterHolder = 0;
     oliverHolder++;
     clearTimeout(catStart);
-    var oliverS = document.getElementById("slideContainer1");
+    var catS = document.getElementById("slideContainer1");
     var displayButton = document.getElementById("changeButton");
     if (oliverHolder == 1) {
-        oliverS.style.display = "none";
+        catOn = false;
+        catS.style.display = "none";
+        doublePlay();
         oliverSlideShow();
-
     }
     if (catCounterHolder == 0) {
         displayButton.style.display = 'none';
     };
-
+    oliverHolder = 0;
+    console.log(catOn);
+    console.log(catCounterHolder);
+    console.log(oliverHolder);
 };
 //Stop double play
 const doublePlay = () => {
     var doubleP = document.getElementById("slideContainer2");
-    if (catOn = true) {
+    if (catOn === true) {
         doubleP.style.display = "none";
+    } else {
+        doubleP.style.display = "block";
     };
 };
 //Disable Button
