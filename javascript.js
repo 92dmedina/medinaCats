@@ -39,20 +39,20 @@ const oliverSlideShow = () => {
     slides[slideIndex - 1].style.display = "block";
     oliverStart = setTimeout(oliverSlideShow, 5000);
 };
-//Start Slideshow w/button.
+//Start Button.
 const startSlideShow = () => {
-    revert = document.getElementById("slideContainer2");
     if (catCounterHolder == 0) {
         disableButton();
     }
     if (oliverHolder == 0) {
         disableButton();
     }
-    if (catCounterHolder === 1 && catOn === true) {
+    if (catOn === true) {
         catCounterHolder = 0;
         setTimeout(catSlideShow, 5000);
         doublePlay();
-    } else {
+    }
+    if (catOn === false) {
         oliverHolder = 0;
         setTimeout(oliverSlideShow, 5000);
     };
@@ -60,7 +60,7 @@ const startSlideShow = () => {
     console.log(catCounterHolder);
     console.log(oliverHolder);
 };
-//Pause Button and Cat Counter
+//Pause Button
 const pauseSlideShow = () => {
 
     if (catCounterHolder <= 1) {
