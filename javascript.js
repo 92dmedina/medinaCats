@@ -5,10 +5,11 @@ var oliverHolder = 0;
 var oliverStart
 var catStart
 var catOn
-
+var oliverOn = false;
 //Cat SlideShow Function
 const catSlideShow = () => {
     catOn = true;
+    oliverOn = false;
     var i;
     var slides = document.getElementsByClassName("catSlides");
     for (i = 0; i < slides.length; i++) {
@@ -20,11 +21,11 @@ const catSlideShow = () => {
         slideIndex = 1, true;
     };
     slides[slideIndex - 1].style.display = "block";
-    catStart = setTimeout(catSlideShow, 5000);
-    document.getElementById("changeButton2").style.visibility = 'hidden';
+    catStart = setTimeout(catSlideShow, 4000);
 };
 //Oliver Slideshow Function
 const oliverSlideShow = () => {
+    oliverOn = true;
     catOn = false;
     var i;
     var slides = document.getElementsByClassName("oliverSlides");
@@ -37,69 +38,55 @@ const oliverSlideShow = () => {
         slideIndex = 1, true;
     };
     slides[slideIndex - 1].style.display = "block";
-    oliverStart = setTimeout(oliverSlideShow, 5000);
+    oliverStart = setTimeout(oliverSlideShow, 4000);
 };
 //Start Button.
 const startSlideShow = () => {
-    if (catCounterHolder == 0) {
+    if (catCounterHolder === 0) {
         disableButton();
     }
-    if (oliverHolder == 0) {
+    if (oliverHolder === 0) {
         disableButton();
     }
-    if (catOn === true) {
-        catCounterHolder = 0;
-        setTimeout(catSlideShow, 5000);
-        doublePlay();
+    if (catCounterHolder === 1) {
+        catCounterHolder -= 1;
+        setTimeout(catSlideShow, 4000);
     }
-    if (catOn === false) {
-        oliverHolder = 0;
-        setTimeout(oliverSlideShow, 5000);
+    if (oliverHolder === 1) {
+        oliverHolder -= 1;
+        setTimeout(oliverSlideShow, 4000);
     };
-    console.log(catOn);
     console.log(catCounterHolder);
     console.log(oliverHolder);
 };
 //Pause Button
 const pauseSlideShow = () => {
-
-    if (catCounterHolder <= 1) {
+    if (catOn === true) {
+        catCounterHolder = 1;
         clearTimeout(catStart);
-        catCounterHolder++;
-        console.log(catCounterHolder);
-    }
-    if (oliverHolder <= 1) {
+    } else {
+        oliverHolder = 1;
         clearTimeout(oliverStart);
-        oliverHolder++;
-        console.log(oliverHolder);
-    }
-    if (oliverHolder >= 1) {
-        oliverHolder = 0
-    }
-    if (catCounterHolder >= 1) {
-        catCounterHolder = 0
     };
+    console.log(catCounterHolder);
+    console.log(oliverHolder);
 };
 //Change Slideshow Button
 const changeSlideShow = () => {
-    catCounterHolder = 0;
-    oliverHolder++;
-    clearTimeout(catStart);
+    console.log(oliverOn);
     var catS = document.getElementById("slideContainer1");
-    var displayButton = document.getElementById("changeButton");
-    if (oliverHolder == 1) {
-        catOn = false;
+    if (oliverOn === false) {
+        clearTimeout(catStart);
         catS.style.display = "none";
-        doublePlay();
         oliverSlideShow();
-    }
-    if (catCounterHolder == 0) {
-        displayButton.style.display = 'none';
+        doublePlay();
+    } else {
+        clearTimeout(oliverStart);
+        catS.style.display = "block";
+        catSlideShow();
+        doublePlay();
     };
-    oliverHolder = 0;
-    console.log(catOn);
-    console.log(catCounterHolder);
-    console.log(oliverHolder);
+    console.log(oliverOn);
 };
 //Stop double play
 const doublePlay = () => {
@@ -112,9 +99,6 @@ const doublePlay = () => {
 };
 //Disable Button
 const disableButton = () => {
-    document.getElementById("startButton").disableButton = true;
-};
-//Display Button
-const displayButton = () => {
-    document.getElementById("changeButton2").style.visibility = 'visible';
+    if (catOn === true)
+        document.getElementById("startButton").disableButton = true;
 };

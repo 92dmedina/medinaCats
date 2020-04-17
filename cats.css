@@ -15,15 +15,25 @@
     display: none;
 }
 
+
+/* misc css */
+
 body {
     background-color: #614304e0;
 }
 
+img {
+    border: inset #614304e0 8px;
+    max-width: 550px;
+}
 
-/* Slideshow */
+
+/*Cat Slideshow */
 
 .ssContainer {
     position: absolute;
+    left: 50%;
+    margin-left: -375px;
     width: 750px;
     height: 850px;
     background-color: #e9967a;
@@ -31,20 +41,12 @@ body {
 }
 
 #slideContainer1 {
-    position: absolute;
-    margin-top: 110px;
-    margin-left: 10px;
-    z-index: 1;
-}
-
-#slideContainer2 {
-    position: absolute;
-    z-index: 1;
-}
-
-img {
-    border: inset #614304e0 8px;
     max-width: 550px;
+    width: 550;
+    position: absolute;
+    left: 31%;
+    top: 118px;
+    z-index: 1;
 }
 
 #captiontextjiji {
@@ -81,7 +83,7 @@ img {
     max-width: min-content;
     max-height: min-content;
     margin-left: 70px;
-    margin-top: 5px;
+    margin-top: 3px;
 }
 
 .titleH {
@@ -110,6 +112,48 @@ img {
 }
 
 
+/* Oliver Slideshow */
+
+#slideContainer2 {
+    max-width: 550px;
+    width: 550;
+    position: absolute;
+    left: 31%;
+    top: 118px;
+    z-index: 1;
+}
+
+.oliverNumbers {
+    margin-left: 55%;
+    margin-top: -80px;
+    position: absolute;
+    text-align: center;
+    max-width: min-content;
+    max-height: min-content;
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    font-family: fantasy;
+    text-shadow: 2px 2px 0 #614304e0, 2px -2px 0 #614304e0, -2px 2px 0 #614304e0, -2px -2px 0 #614304e0, 2px 0px 0 #614304e0, 0px 2px 0 #614304e0, -2px 0px 0 #614304e0, 0px -2px 0 #614304e0;
+}
+
+.oliverText {
+    position: absolute;
+    margin-left: 53%;
+    margin-top: -40px;
+    letter-spacing: 4px;
+    font-family: fantasy;
+    text-align: center;
+    max-width: min-content;
+    max-height: min-content;
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: bold;
+    text-shadow: 2px 2px 0 #614304e0, 2px -2px 0 #614304e0, -2px 2px 0 #614304e0, -2px -2px 0 #614304e0, 2px 0px 0 #614304e0, 0px 2px 0 #614304e0, -2px 0px 0 #614304e0, 0px -2px 0 #614304e0;
+}
+
+
 /* Button Bar */
 
 .buttonBar {
@@ -121,7 +165,7 @@ img {
 }
 
 
-/* Hidden Button */
+/* Pause Button */
 
 #pauseButton {
     max-width: min-content;
@@ -146,6 +190,9 @@ img {
     background: #ffffff;
 }
 
+
+/* Start Button */
+
 #startButton {
     max-width: min-content;
     max-height: min-content;
@@ -169,6 +216,9 @@ img {
 #startButton:active {
     background: #ffffff;
 }
+
+
+/* Change Button */
 
 #changeButton {
     max-width: min-content;
@@ -199,14 +249,14 @@ img {
 
 .fade {
     -webkit-animation-name: fade;
-    -webkit-animation-duration: 5s;
+    -webkit-animation-duration: 4s;
     animation-name: fade;
-    animation-duration: 5s;
+    animation-duration: 4s;
 }
 
 @-webkit-keyframes fade {
     from {
-        opacity: .3;
+        opacity: .2;
     }
     to {
         opacity: 1;
@@ -215,7 +265,7 @@ img {
 
 @keyframes fade {
     from {
-        opacity: .3;
+        opacity: .2;
     }
     to {
         opacity: 1;
