@@ -6,7 +6,7 @@
             "type": "firefox",
             "request": "launch",
             "reAttach": true,
-            "name": "Launch freeminded.html",
+            "name": "Launch medinaCats.html",
             "file": "${workspaceFolder}/medinaCats.html"
         },
        
