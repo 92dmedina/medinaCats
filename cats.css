@@ -41,12 +41,12 @@ img {
 }
 
 #slideContainer1 {
-    max-width: 550px;
-    width: 550;
     position: absolute;
-    left: 31%;
-    top: 118px;
+    top: 103px;
+    left: 5px;
     z-index: 1;
+    max-width: min-content;
+    max-height: min-content;
 }
 
 #captiontextjiji {
@@ -115,8 +115,8 @@ img {
 /* Oliver Slideshow */
 
 #slideContainer2 {
-    max-width: 550px;
-    width: 550;
+    max-width: min-content;
+    max-height: min-content;
     position: absolute;
     left: 31%;
     top: 118px;
@@ -258,6 +258,7 @@ img {
     from {
         opacity: .2;
     }
+
     to {
         opacity: 1;
     }
@@ -267,6 +268,7 @@ img {
     from {
         opacity: .2;
     }
+
     to {
         opacity: 1;
     }
